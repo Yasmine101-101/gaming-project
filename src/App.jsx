@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 
+
 const riddles = [
   {
     id: 1,
@@ -33,6 +34,7 @@ const riddles = [
     correctAnswer: "All of the above"
   }
 ];
+
 function App() {
   
   const [gameState, setGameState] = useState('start');
@@ -43,10 +45,10 @@ function App() {
   
   const [score, setScore] = useState(0);
   
-  
+ 
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   
-  
+ 
   const [showNext, setShowNext] = useState(false);
   
   
@@ -56,6 +58,7 @@ function App() {
   console.log('Selected Answer:', selectedAnswer);
   console.log('Show Next:', showNext);
 
+ 
   const startGame = () => {
     setGameState('playing');
     console.log('Game started!');
@@ -68,6 +71,22 @@ function App() {
           <h1> Riddle Game</h1>
           <p>Test your brain with 5 tricky riddles!</p>
           <button onClick={startGame}>Start Game</button>
+        </div>
+      )}
+
+      {gameState === 'playing' && (
+        <div className="game-screen">
+          <div className="progress">
+            Question {currentRiddleIndex + 1} of {riddles.length}
+          </div>
+          
+          <h2 className="question">
+            {riddles[currentRiddleIndex].question}
+          </h2>
+          
+          <div className="options">
+            <p>Answer buttons will go here</p>
+          </div>
         </div>
       )}
     </div>
