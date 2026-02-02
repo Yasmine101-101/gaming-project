@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+
 const riddles = [
   {
     id: 1,
@@ -64,7 +65,7 @@ function App() {
     <div className="App">
       {gameState === 'start' && (
         <div className="start-screen">
-          <h1>🧩 Riddle Game</h1>
+          <h1> Riddle Game</h1>
           <p>Test your brain with 5 tricky riddles!</p>
           <button onClick={startGame}>Start Game</button>
         </div>
