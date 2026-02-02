@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import './App.css';
 
-
 const riddles = [
   {
     id: 1,
@@ -36,18 +35,20 @@ const riddles = [
 ];
 
 function App() {
+ 
   const [gameState, setGameState] = useState('start');
   
   
   const [currentRiddleIndex, setCurrentRiddleIndex] = useState(0);
   
- 
   const [score, setScore] = useState(0);
   
- 
+  
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   
+  
   const [showNext, setShowNext] = useState(false);
+  
   
   console.log('Game State:', gameState);
   console.log('Current Riddle Index:', currentRiddleIndex);
@@ -55,7 +56,7 @@ function App() {
   console.log('Selected Answer:', selectedAnswer);
   console.log('Show Next:', showNext);
 
-  
+ 
   const startGame = () => {
     setGameState('playing');
     console.log('Game started!');
@@ -82,7 +83,7 @@ function App() {
     <div className="App">
       {gameState === 'start' && (
         <div className="start-screen">
-          <h1>Riddle Game</h1>
+          <h1>🧩 Riddle Game</h1>
           <p>Test your brain with 5 tricky riddles!</p>
           <button onClick={startGame}>Start Game</button>
         </div>
@@ -99,15 +100,31 @@ function App() {
           </h2>
           
           <div className="options">
-            {riddles[currentRiddleIndex].options.map((option) => (
-              <button
-                key={option}
-                className="option-button"
-                onClick={() => handleAnswerClick(option)}
-              >
-                {option}
-              </button>
-            ))}
+            {riddles[currentRiddleIndex].options.map((option) => {
+              let buttonClass = 'option-button';
+              
+              if (selectedAnswer) {
+                
+                if (option === riddles[currentRiddleIndex].correctAnswer) {
+                  buttonClass += ' correct';
+                }
+
+                else if (option === selectedAnswer) {
+                  buttonClass += ' incorrect';
+                }
+              }
+              
+              return (
+                <button
+                  key={option}
+                  className={buttonClass}
+                  onClick={() => handleAnswerClick(option)}
+                  disabled={selectedAnswer !== null}
+                >
+                  {option}
+                </button>
+              );
+            })}
           </div>
         </div>
       )}
