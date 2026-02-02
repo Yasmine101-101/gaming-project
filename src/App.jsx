@@ -32,3 +32,37 @@ const riddles = [
     correctAnswer: "All of the above"
   }
 ];
+function App() {
+  
+  const [gameState, setGameState] = useState('start');
+  
+ 
+  const [currentRiddleIndex, setCurrentRiddleIndex] = useState(0);
+  
+  
+  const [score, setScore] = useState(0);
+  
+  
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
+  
+  
+  const [showNext, setShowNext] = useState(false);
+  
+  
+  console.log('Game State:', gameState);
+  console.log('Current Riddle Index:', currentRiddleIndex);
+  console.log('Score:', score);
+  console.log('Selected Answer:', selectedAnswer);
+  console.log('Show Next:', showNext);
+
+  return (
+    <div className="App">
+      <h1>Riddle Game</h1>
+      <p>Game State: {gameState}</p>
+      <p>Current Riddle: {currentRiddleIndex + 1}</p>
+      <p>Score: {score}</p>
+    </div>
+  );
+}
+
+export default App;
