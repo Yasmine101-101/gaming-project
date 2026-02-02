@@ -36,21 +36,18 @@ const riddles = [
 ];
 
 function App() {
-  
   const [gameState, setGameState] = useState('start');
   
- 
+  
   const [currentRiddleIndex, setCurrentRiddleIndex] = useState(0);
   
-  
+ 
   const [score, setScore] = useState(0);
   
  
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   
- 
   const [showNext, setShowNext] = useState(false);
-  
   
   console.log('Game State:', gameState);
   console.log('Current Riddle Index:', currentRiddleIndex);
@@ -58,17 +55,34 @@ function App() {
   console.log('Selected Answer:', selectedAnswer);
   console.log('Show Next:', showNext);
 
- 
+  
   const startGame = () => {
     setGameState('playing');
     console.log('Game started!');
+  };
+
+  
+  const handleAnswerClick = (option) => {
+    console.log('Clicked:', option);
+    setSelectedAnswer(option);
+    
+    
+    const currentRiddle = riddles[currentRiddleIndex];
+    if (option === currentRiddle.correctAnswer) {
+      console.log('Correct!');
+      setScore(score + 1);
+    } else {
+      console.log('Wrong!');
+    }
+    
+    setShowNext(true);
   };
 
   return (
     <div className="App">
       {gameState === 'start' && (
         <div className="start-screen">
-          <h1> Riddle Game</h1>
+          <h1>Riddle Game</h1>
           <p>Test your brain with 5 tricky riddles!</p>
           <button onClick={startGame}>Start Game</button>
         </div>
@@ -85,7 +99,15 @@ function App() {
           </h2>
           
           <div className="options">
-            <p>Answer buttons will go here</p>
+            {riddles[currentRiddleIndex].options.map((option) => (
+              <button
+                key={option}
+                className="option-button"
+                onClick={() => handleAnswerClick(option)}
+              >
+                {option}
+              </button>
+            ))}
           </div>
         </div>
       )}
