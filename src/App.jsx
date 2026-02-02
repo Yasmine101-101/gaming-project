@@ -83,7 +83,7 @@ function App() {
 
 
   const handleNext = () => {
-    // Check if this was the last riddle
+    
     if (currentRiddleIndex === riddles.length - 1) {
       
       setGameState('finished');

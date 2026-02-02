@@ -116,7 +116,6 @@ button:hover {
   color: white;
 }
 
-
 .next-button {
   width: 100%;
   margin-top: 20px;
@@ -127,4 +126,45 @@ button:hover {
 
 .next-button:hover {
   background-color: #2563eb;
+}
+
+
+.end-screen {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 500px;
+}
+
+.end-screen h1 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #1f2937;
+}
+
+.score-display {
+  background-color: #f3f4f6;
+  padding: 30px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+
+.score-text {
+  font-size: 1rem;
+  color: #6b7280;
+  margin-bottom: 10px;
+}
+
+.score-number {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #3b82f6;
+  margin-bottom: 10px;
+}
+
+.score-percentage {
+  font-size: 1.5rem;
+  color: #1f2937;
 }
