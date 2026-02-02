@@ -83,7 +83,7 @@ function App() {
     <div className="App">
       {gameState === 'start' && (
         <div className="start-screen">
-          <h1>🧩 Riddle Game</h1>
+          <h1> Riddle Game</h1>
           <p>Test your brain with 5 tricky riddles!</p>
           <button onClick={startGame}>Start Game</button>
         </div>
@@ -126,6 +126,13 @@ function App() {
               );
             })}
           </div>
+          
+          {showNext && (
+            <button className="next-button" onClick={handleNext}>
+              {currentRiddleIndex === riddles.length - 1 ? 'See Results' : 'Next Question'}
+            </button>
+          )}
+
         </div>
       )}
     </div>

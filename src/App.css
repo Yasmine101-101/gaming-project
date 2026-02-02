@@ -101,3 +101,30 @@ button:hover {
   background-color: #d1d5db;
   transform: translateX(5px);
 }
+
+.option-button:disabled {
+  cursor: not-allowed;
+}
+
+.option-button.correct {
+  background-color: #22c55e;
+  color: white;
+}
+
+.option-button.incorrect {
+  background-color: #ef4444;
+  color: white;
+}
+
+
+.next-button {
+  width: 100%;
+  margin-top: 20px;
+  background-color: #3b82f6;
+  padding: 15px;
+  font-size: 1.1rem;
+}
+
+.next-button:hover {
+  background-color: #2563eb;
+}
