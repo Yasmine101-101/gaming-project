@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 
+
 const riddles = [
   {
     id: 1,
@@ -35,11 +36,12 @@ const riddles = [
 ];
 
 function App() {
- 
+  
   const [gameState, setGameState] = useState('start');
   
   
   const [currentRiddleIndex, setCurrentRiddleIndex] = useState(0);
+  
   
   const [score, setScore] = useState(0);
   
@@ -56,7 +58,7 @@ function App() {
   console.log('Selected Answer:', selectedAnswer);
   console.log('Show Next:', showNext);
 
- 
+  
   const startGame = () => {
     setGameState('playing');
     console.log('Game started!');
@@ -77,6 +79,32 @@ function App() {
     }
     
     setShowNext(true);
+  };
+
+
+  const handleNext = () => {
+    // Check if this was the last riddle
+    if (currentRiddleIndex === riddles.length - 1) {
+      
+      setGameState('finished');
+      console.log('Game finished! Final score:', score);
+    } else {
+      
+      setCurrentRiddleIndex(currentRiddleIndex + 1);
+      setSelectedAnswer(null);
+      setShowNext(false);
+      console.log('Moving to riddle', currentRiddleIndex + 2);
+    }
+  };
+
+  
+  const restartGame = () => {
+    setGameState('start');
+    setCurrentRiddleIndex(0);
+    setScore(0);
+    setSelectedAnswer(null);
+    setShowNext(false);
+    console.log('Game restarted!');
   };
 
   return (
@@ -108,7 +136,7 @@ function App() {
                 if (option === riddles[currentRiddleIndex].correctAnswer) {
                   buttonClass += ' correct';
                 }
-
+               
                 else if (option === selectedAnswer) {
                   buttonClass += ' incorrect';
                 }
@@ -126,13 +154,26 @@ function App() {
               );
             })}
           </div>
-          
+
           {showNext && (
             <button className="next-button" onClick={handleNext}>
               {currentRiddleIndex === riddles.length - 1 ? 'See Results' : 'Next Question'}
             </button>
           )}
+        </div>
+      )}
 
+      {gameState === 'finished' && (
+        <div className="end-screen">
+          <h1>🎉 Game Over!</h1>
+          <div className="score-display">
+            <p className="score-text">Your Score</p>
+            <p className="score-number">{score} / {riddles.length}</p>
+            <p className="score-percentage">
+              {Math.round((score / riddles.length) * 100)}%
+            </p>
+          </div>
+          <button onClick={restartGame}>Play Again</button>
         </div>
       )}
     </div>
