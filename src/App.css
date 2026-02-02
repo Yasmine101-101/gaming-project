@@ -1,3 +1,4 @@
+
 * {
   margin: 0;
   padding: 0;
@@ -5,7 +6,7 @@
 }
 
 body {
-  background-color: #f3f4f6;
+  background-color: #f19191;
   font-family: Arial, sans-serif;
 }
 
@@ -67,7 +68,7 @@ button:hover {
 
 .progress {
   text-align: center;
-  color: #6b7280;
+  color: #80a4ee;
   font-size: 0.9rem;
   margin-bottom: 20px;
 }
@@ -115,6 +116,7 @@ button:hover {
   background-color: #ef4444;
   color: white;
 }
+
 
 .next-button {
   width: 100%;
@@ -167,4 +169,56 @@ button:hover {
 .score-percentage {
   font-size: 1.5rem;
   color: #1f2937;
+}
+
+
+.feedback {
+  text-align: center;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.correct-feedback {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.incorrect-feedback {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+
+@media (max-width: 768px) {
+  .start-screen,
+  .game-screen,
+  .end-screen {
+    padding: 20px;
+  }
+
+  .start-screen h1,
+  .end-screen h1 {
+    font-size: 2rem;
+  }
+
+  .question {
+    font-size: 1.2rem;
+  }
+
+  .score-number {
+    font-size: 2.5rem;
+  }
+
+  .option-button {
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+
+  .next-button {
+    font-size: 1rem;
+    padding: 12px;
+  }
 }

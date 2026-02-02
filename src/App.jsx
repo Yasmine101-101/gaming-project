@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './App.css';
 
 
+
 const riddles = [
   {
     id: 1,
@@ -155,7 +156,8 @@ function App() {
           </div>
 
           {showNext && (
-            <div className={`feedback ${selectedAnswer === riddles[currentRiddleIndex].correctAnswer ? 'correct-feedback' : 'incorrect-feedback'}`}>
+            <div className={`feedback ${selectedAnswer === riddles[currentRiddleIndex].correctAnswer ?
+             'correct-feedback' : 'incorrect-feedback'}`}>
               {selectedAnswer === riddles[currentRiddleIndex].correctAnswer 
                 ? '✓ Correct!' 
                 : '✗ Wrong answer'}
@@ -188,3 +190,5 @@ function App() {
 }
 
 export default App;
+
+
