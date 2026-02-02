@@ -55,12 +55,20 @@ function App() {
   console.log('Selected Answer:', selectedAnswer);
   console.log('Show Next:', showNext);
 
+  const startGame = () => {
+    setGameState('playing');
+    console.log('Game started!');
+  };
+
   return (
     <div className="App">
-      <h1>Riddle Game</h1>
-      <p>Game State: {gameState}</p>
-      <p>Current Riddle: {currentRiddleIndex + 1}</p>
-      <p>Score: {score}</p>
+      {gameState === 'start' && (
+        <div className="start-screen">
+          <h1>🧩 Riddle Game</h1>
+          <p>Test your brain with 5 tricky riddles!</p>
+          <button onClick={startGame}>Start Game</button>
+        </div>
+      )}
     </div>
   );
 }
