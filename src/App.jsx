@@ -36,7 +36,7 @@ const riddles = [
 ];
 
 function App() {
-  
+ 
   const [gameState, setGameState] = useState('start');
   
   
@@ -48,10 +48,10 @@ function App() {
   
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   
-  
+ 
   const [showNext, setShowNext] = useState(false);
   
-  
+ 
   console.log('Game State:', gameState);
   console.log('Current Riddle Index:', currentRiddleIndex);
   console.log('Score:', score);
@@ -69,7 +69,6 @@ function App() {
     console.log('Clicked:', option);
     setSelectedAnswer(option);
     
-    
     const currentRiddle = riddles[currentRiddleIndex];
     if (option === currentRiddle.correctAnswer) {
       console.log('Correct!');
@@ -81,7 +80,7 @@ function App() {
     setShowNext(true);
   };
 
-
+  
   const handleNext = () => {
     
     if (currentRiddleIndex === riddles.length - 1) {
@@ -89,7 +88,7 @@ function App() {
       setGameState('finished');
       console.log('Game finished! Final score:', score);
     } else {
-      
+     
       setCurrentRiddleIndex(currentRiddleIndex + 1);
       setSelectedAnswer(null);
       setShowNext(false);
@@ -136,7 +135,7 @@ function App() {
                 if (option === riddles[currentRiddleIndex].correctAnswer) {
                   buttonClass += ' correct';
                 }
-               
+                
                 else if (option === selectedAnswer) {
                   buttonClass += ' incorrect';
                 }
@@ -156,6 +155,14 @@ function App() {
           </div>
 
           {showNext && (
+            <div className={`feedback ${selectedAnswer === riddles[currentRiddleIndex].correctAnswer ? 'correct-feedback' : 'incorrect-feedback'}`}>
+              {selectedAnswer === riddles[currentRiddleIndex].correctAnswer 
+                ? '✓ Correct!' 
+                : '✗ Wrong answer'}
+            </div>
+          )}
+
+          {showNext && (
             <button className="next-button" onClick={handleNext}>
               {currentRiddleIndex === riddles.length - 1 ? 'See Results' : 'Next Question'}
             </button>
@@ -165,7 +172,7 @@ function App() {
 
       {gameState === 'finished' && (
         <div className="end-screen">
-          <h1>🎉 Game Over!</h1>
+          <h1> Game Over!</h1>
           <div className="score-display">
             <p className="score-text">Your Score</p>
             <p className="score-number">{score} / {riddles.length}</p>
