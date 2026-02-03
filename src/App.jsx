@@ -2,7 +2,6 @@ import { useState } from 'react';
 import './App.css';
 
 
-
 const riddles = [
   {
     id: 1,
@@ -110,7 +109,7 @@ function App() {
   return (
     <div className="App">
       {gameState === 'start' && (
-        <div className="start-screen">
+        <div className="start-screen ">
           <h1> Riddle Game</h1>
           <p>Test your brain with 5 tricky riddles!</p>
           <button onClick={startGame}>Start Game</button>
@@ -129,6 +128,7 @@ function App() {
           
           <div className="options">
             {riddles[currentRiddleIndex].options.map((option) => {
+
               let buttonClass = 'option-button';
               
               if (selectedAnswer) {
@@ -190,5 +190,14 @@ function App() {
 }
 
 export default App;
+
+/*
+      future  features to be added:
+1. i'll be adding a timer => 60sec (if you haven't answered by then, it's wrong)
+2. I'll be adding sound effects for correct and wrong answers and also for button clicks
+3. i'll be adding more riddles to the list
+4. i'll also add a streak counter to track 3 consecutive correct answers
+5. i'll be adding an ambiance background music (some ppl might find it distracting though)
+*/
 
 

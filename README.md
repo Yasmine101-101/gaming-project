@@ -56,6 +56,16 @@ The app will open automatically in your browser at `http://localhost:3000`.
 5. After answering all 5 riddles, your final score and percentage will be shown
 6. Click **Play Again** to restart the game
 
+Visual representation:
+
+Score	Calculation	Result	Percentage
+0	0/5 * 100	0	0%
+1	1/5 * 100	20	20%
+2	2/5 * 100	40	40%
+3	3/5 * 100	60	60%
+4	4/5 * 100	80	80%
+5	5/5 * 100	100	100%
+
 ## Project Structure
 
 ```
@@ -65,7 +75,7 @@ riddle-game/
 ├── src/
 │   ├── App.jsx          # Main game logic and screens
 │   ├── App.css          # All styles for the app
-│   └── index.js         # Entry point
+│            # Entry point
 ├── package.json
 └── README.md
 ```
