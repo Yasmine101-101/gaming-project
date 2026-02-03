@@ -6,7 +6,8 @@
 }
 
 body {
-  background-image: url('https://t4.ftcdn.net/jpg/02/76/95/99/360_F_276959928_MzW1FMER5GDM51fsFgmzjcWHzTeP5UYI.jpg');
+  background-image: url(https://static.vecteezy.com/system/resources/thumbnails/035/575/771/small/background-of-colored-puzzle-pieces-that-rotating-clockwise-top-view-texture-of-incomplete-red-and-blue-jigsaw-puzzle-with-low-key-light-right-rotation-video.jpg);
+ 
   background-color: #0a0956;
   font-family: Arial, sans-serif;
 }
@@ -59,7 +60,7 @@ button:hover {
 
 
 .game-screen {
-  background: white;
+   background-image: url('https://t4.ftcdn.net/jpg/02/76/95/99/360_F_276959928_MzW1FMER5GDM51fsFgmzjcWHzTeP5UYI.jpg');
   padding: 40px;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -76,7 +77,7 @@ button:hover {
 
 .question {
   font-size: 1.5rem;
-  color: #1f2937;
+  color: #e0e4ea;
   margin-bottom: 30px;
   text-align: center;
   line-height: 1.6;
