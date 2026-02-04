@@ -107,85 +107,113 @@ function App() {
   };
 
   return (
-    <div className="App">
-      {gameState === 'start' && (
-        <div className="start-screen ">
-          <h1> Riddle Game</h1>
-          <p>Test your brain with 5 tricky riddles!</p>
-          <button onClick={startGame}>Start Game</button>
+    <>
+
+      <nav className="navbar">
+        <div className="navbar-content">
+          <div className="navbar-logo">
+            <span className="logo-icon">GAME</span>
+            <span className="logo-text">Riddle Master</span>
+          </div>
+          <div className="navbar-links">
+            {gameState === 'playing' && (
+              <div className="score-badge">
+                Score: {score}/{riddles.length}
+              </div>
+            )}
+            {gameState !== 'start' && (
+              <button className="nav-button" onClick={restartGame}>
+                🏠 Home
+              </button>
+            )}
+          </div>
         </div>
-      )}
+      </nav>
 
-      {gameState === 'playing' && (
-        <div className="game-screen">
-          <div className="progress">
-            Question {currentRiddleIndex + 1} of {riddles.length}
+      <div className="App">
+        {gameState === 'start' && (
+          <div className="start-screen ">
+            <h1> Riddle Game</h1>
+            <p>Test your brain with 5 tricky riddles!</p>
+            <button onClick={startGame}>Start Game</button>
           </div>
-          
-          <h2 className="question">
-            {riddles[currentRiddleIndex].question}
-          </h2>
-          
-          <div className="options">
-            {riddles[currentRiddleIndex].options.map((option) => {
+        )}
 
-              let buttonClass = 'option-button';
-              
-              if (selectedAnswer) {
-                
-                if (option === riddles[currentRiddleIndex].correctAnswer) {
-                  buttonClass += ' correct';
-                }
-                
-                else if (option === selectedAnswer) {
-                  buttonClass += ' incorrect';
-                }
-              }
-              
-              return (
-                <button
-                  key={option}
-                  className={buttonClass}
-                  onClick={() => handleAnswerClick(option)}
-                  disabled={selectedAnswer !== null}
-                >
-                  {option}
-                </button>
-              );
-            })}
-          </div>
-
-          {showNext && (
-            <div className={`feedback ${selectedAnswer === riddles[currentRiddleIndex].correctAnswer ?
-             'correct-feedback' : 'incorrect-feedback'}`}>
-              {selectedAnswer === riddles[currentRiddleIndex].correctAnswer 
-                ? '✓ Correct!' 
-                : '✗ Wrong answer'}
+        {gameState === 'playing' && (
+          <div className="game-screen">
+            <div className="progress">
+              Question {currentRiddleIndex + 1} of {riddles.length}
             </div>
-          )}
+            
+            <h2 className="question">
+              {riddles[currentRiddleIndex].question}
+            </h2>
+            
+            <div className="options">
+              {riddles[currentRiddleIndex].options.map((option) => {
 
-          {showNext && (
-            <button className="next-button" onClick={handleNext}>
-              {currentRiddleIndex === riddles.length - 1 ? 'See Results' : 'Next Question'}
-            </button>
-          )}
-        </div>
-      )}
+                let buttonClass = 'option-button';
+                
+                if (selectedAnswer) {
+                  
+                  if (option === riddles[currentRiddleIndex].correctAnswer) {
+                    buttonClass += ' correct';
+                  }
+                  
+                  else if (option === selectedAnswer) {
+                    buttonClass += ' incorrect';
+                  }
+                }
+                
+                return (
+                  <button
+                    key={option}
+                    className={buttonClass}
+                    onClick={() => handleAnswerClick(option)}
+                    disabled={selectedAnswer !== null}
+                  >
+                    {option}
+                  </button>
+                );
+              })}
+            </div>
 
-      {gameState === 'finished' && (
-        <div className="end-screen">
-          <h1> Game Over!</h1>
-          <div className="score-display">
-            <p className="score-text">Your Score</p>
-            <p className="score-number">{score} / {riddles.length}</p>
-            <p className="score-percentage">
-              {Math.round((score / riddles.length) * 100)}%
-            </p>
+            {showNext && (
+              <div className={`feedback ${selectedAnswer === riddles[currentRiddleIndex].correctAnswer ?
+               'correct-feedback' : 'incorrect-feedback'}`}>
+                {selectedAnswer === riddles[currentRiddleIndex].correctAnswer 
+                  ? '✓ Correct!' 
+                  : '✗ Wrong answer'}
+              </div>
+            )}
+
+            {showNext && (
+              <button className="next-button" onClick={handleNext}>
+                {currentRiddleIndex === riddles.length - 1 ? 'See Results' : 'Next Question'}
+              </button>
+            )}
           </div>
-          <button onClick={restartGame}>Play Again</button>
-        </div>
-      )}
-    </div>
+        )}
+
+        {gameState === 'finished' && (
+          <div className="end-screen">
+            <h1>🎉 Game Over!</h1>
+            <div className="score-display">
+              
+              <p className="score-text">Your Score</p>
+              <p className="score-number">{score} / {riddles.length}</p>
+                
+             
+              <p className="score-percentage">
+                {Math.round((score / riddles.length) * 100)}%
+                
+              </p>
+            </div>
+            <button onClick={restartGame}>Play Again</button>
+          </div>
+        )}
+      </div>
+    </>
   );
 }
 

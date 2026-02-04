@@ -1,4 +1,3 @@
-
 * {
   margin: 0;
   padding: 0;
@@ -7,13 +6,81 @@
 
 body {
   background-image: url(https://static.vecteezy.com/system/resources/thumbnails/035/575/771/small/background-of-colored-puzzle-pieces-that-rotating-clockwise-top-view-texture-of-incomplete-red-and-blue-jigsaw-puzzle-with-low-key-light-right-rotation-video.jpg);
- 
   background-color: #0a0956;
   font-family: Arial, sans-serif;
 }
 
+
+.navbar {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 15px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.logo-icon {
+  font-size: 2rem;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.score-badge {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  backdrop-filter: blur(10px);
+}
+
+.nav-button {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid white;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+  backdrop-filter: blur(10px);
+}
+
+.nav-button:hover {
+  background-color: white;
+  color: #667eea;
+  transform: translateY(-2px);
+}
+
 .App {
-  min-height: 100vh;
+  min-height: calc(100vh - 60px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -195,6 +262,28 @@ button:hover {
 
 
 @media (max-width: 768px) {
+  .navbar-logo {
+    font-size: 1.2rem;
+  }
+
+  .logo-icon {
+    font-size: 1.5rem;
+  }
+
+  .logo-text {
+    font-size: 1.2rem;
+  }
+
+  .score-badge {
+    font-size: 0.85rem;
+    padding: 6px 12px;
+  }
+
+  .nav-button {
+    font-size: 0.85rem;
+    padding: 6px 12px;
+  }
+
   .start-screen,
   .game-screen,
   .end-screen {
@@ -223,5 +312,4 @@ button:hover {
     font-size: 1rem;
     padding: 12px;
   }
-} 
- 
+}
